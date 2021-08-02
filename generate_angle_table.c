@@ -1,6 +1,6 @@
-#include <math.h>
 #include <stdio.h>
-int main(){
+int * generate_table()
+{
 	float pi = 3.1415926535897932384626;
 	int bit = 14;
 	int angle_array[14];
@@ -10,5 +10,7 @@ int main(){
 		angle_array[i] = array[i]* pi / 180 * scale_factor;
 		printf("%d \n",angle_array[i]);
 	}
+	
+	return angle_array; // &angle_array[0]
 
 }
