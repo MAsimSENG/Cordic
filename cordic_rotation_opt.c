@@ -15,10 +15,8 @@ int angle_arr[14] = {6433, 3797, 2005, 1018, 510, 254, 127, 62, 31, 15, 7, 3, 1,
     register int Z_next, Z=target_angle; 
     register int i; 
 
-      for (i^=i; i < length_of_angle_array; i++)  {
-
- 
-
+      for (i^=i; i < length_of_angle_array; i=i+2)  {
+          printf ("iteration: %d \n", i);
 
         if(Z > 0){
 
@@ -47,9 +45,41 @@ int angle_arr[14] = {6433, 3797, 2005, 1018, 510, 254, 127, 62, 31, 15, 7, 3, 1,
 
           Z= Z_next;
         }
+
+        double temp_angle = ((float)(Z) /  (float)(1<<13)) * 57.3;
+        printf("the angle: %f \n", temp_angle);
+
+        if(Z > 0){
+
+          X_next= X_prev - (Y_prev >> (i+1)); 
+
+          Y_next = Y_prev + (X_prev >> (i+1)); 
+
+          Z_next = Z  -  angle_arr[i+1]; 
+
+          X_prev = X_next;
+
+          Y_prev = Y_next;
+
+          Z= Z_next;
+
+        }else{
+          X_next= X_prev + (Y_prev  >> (i+1));
+
+          Y_next = Y_prev - (X_prev >> (i+1));
+
+          Z_next = Z  +  angle_arr[i+1];
+
+          X_prev = X_next;
+
+          Y_prev = Y_next;
+
+          Z= Z_next;
+        }
       
-      double temp_angle = ((float)(Z) /  (float)(1<<13)) * 57.3;
+      temp_angle = ((float)(Z) /  (float)(1<<13)) * 57.3;
       printf("the angle: %f \n", temp_angle);
+    
     } // for loop
 
       double Z_result = ((float)(Z) / (float)(1<<13)) * 57.3;
