@@ -1,5 +1,5 @@
 
-#include "cordic_practice.c"
+#include "cordic_rotation.c"
 
 int main()
 {
