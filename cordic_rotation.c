@@ -23,9 +23,6 @@ int angle_arr[14] = {6433, 3797, 2005, 1018, 510, 254, 127, 62, 31, 15, 7, 3, 1,
 
     int Z_next, Z=target_angle; 
 
-    int sign = 1;  // sign can be +  or negative depending on feedback 
-
-    double factor =1.0;
 
       for (int i=0; i< length_of_angle_array; i++)  {
         printf("iteration : %d \t",i);
