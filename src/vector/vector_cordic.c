@@ -41,14 +41,14 @@ int cordic_vector(double x, double y)
 
 
 	}	
-<<<<<<< HEAD
-	printf("This is the result %d\t%d\%d", x_next, y_next,z_next);
-<<<<<<< HEAD
+
+printf("This is the result %d\t%d\%d", x_next, y_next,z_next);
 
 
-=======
->>>>>>> a75248bc51928aaaaef9db7615b260b7926f5dc7
-=======
+
+
+
+
 	printf("This is the result %d\t%d\%d", x_next, y_next,z);
->>>>>>> 6e6feff0051541bcd7db28f4cba97eae782c3197
+
 }
