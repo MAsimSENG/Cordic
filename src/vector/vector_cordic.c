@@ -1,13 +1,12 @@
-
-
 int angle_arr[14] = {6433, 3797, 2005, 1018, 510, 254, 127, 62, 31, 15, 7, 3, 1,0 };
 
-int cordic_vector(float x, float y)
+int cordic_vector(double x, double y)
 {
 	
 
-	int x_prev = x << 13; 
-	int y_prev = y << 13; 
+
+	int x_prev = (int) (x << 13); 
+	int y_prev = (int) (y << 13); 
 	int z=0; 
 	int x_next =0; 
 	int y_next =0; 
@@ -39,7 +38,5 @@ int cordic_vector(float x, float y)
 
 
 	}	
-	printf("This is the result %d\t%d\%d, x_next, y_next,z_next);
-
-
+	printf("This is the result %d\t%d\%d", x_next, y_next,z_next);
 }
