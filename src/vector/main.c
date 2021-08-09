@@ -1,6 +1,6 @@
-#include "cordic_rotation_opt.c"
-#include "cordic_rotation.c"
-#include "cordic_vector.c"
+
+
+#include "vector_cordic.c"
 
 int main()
 {
