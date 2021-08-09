@@ -25,7 +25,7 @@ int cordic_vector(double x, double y)
 		   	z_next = z_prev + angle_arr[i];
 		   	x_prev = x_next; 
 		   	y_prev = y_next;
-		   	z_next = z_prev; 
+		   	z = z_prev; 
 		}
 
 		else
@@ -35,16 +35,20 @@ int cordic_vector(double x, double y)
 		   	z_next = z_prev - angle_arr[i];
 			x_prev = x_next; 
 	   		y_prev = y_next;
-	   		z_next = z_prev;
+	   		z = z_prev;
 		}
 
 
 
 	}	
+<<<<<<< HEAD
 	printf("This is the result %d\t%d\%d", x_next, y_next,z_next);
 <<<<<<< HEAD
 
 
 =======
 >>>>>>> a75248bc51928aaaaef9db7615b260b7926f5dc7
+=======
+	printf("This is the result %d\t%d\%d", x_next, y_next,z);
+>>>>>>> 6e6feff0051541bcd7db28f4cba97eae782c3197
 }
