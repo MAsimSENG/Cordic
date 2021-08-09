@@ -15,7 +15,7 @@ int angle_arr[14] = {6433, 3797, 2005, 1018, 510, 254, 127, 62, 31, 15, 7, 3, 1,
     register int Z_next, Z=target_angle; 
     register int i; 
 
-      for (i^=i; !(i&14) ; i=i+2)  {
+      for (i^=i; i < length_of_angle_array; i=i+2)  {
           printf ("iteration: %d \n", i);
 
         if(Z > 0){
