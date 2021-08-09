@@ -1,13 +1,13 @@
-nt angle_arr[14] = {6433, 3797, 2005, 1018, 510, 254, 127, 62, 31, 15, 7, 3, 1,0 };
 
-int cordic_vector(int x, int y)
+
+int angle_arr[14] = {6433, 3797, 2005, 1018, 510, 254, 127, 62, 31, 15, 7, 3, 1,0 };
+
+int cordic_vector(float x, float y)
 {
 	
-	x = x << 13; 
-	y = y << 13; 
 
-	int x_prev = x; 
-	int y_prev = y; 
+	int x_prev = x << 13; 
+	int y_prev = y << 13; 
 	int z=0; 
 	int x_next =0; 
 	int y_next =0; 
@@ -43,4 +43,3 @@ int cordic_vector(int x, int y)
 
 
 }
-
