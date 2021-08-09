@@ -1,0 +1,274 @@
+	.arch armv7-a
+	.eabi_attribute 28, 1
+	.eabi_attribute 20, 1
+	.eabi_attribute 21, 1
+	.eabi_attribute 23, 3
+	.eabi_attribute 24, 1
+	.eabi_attribute 25, 1
+	.eabi_attribute 26, 2
+	.eabi_attribute 30, 2
+	.eabi_attribute 34, 1
+	.eabi_attribute 18, 4
+	.file	"cordic_rotation.c"
+	.text
+	.align	2
+	.global	rotation_cordic
+	.arch armv7-a
+	.syntax unified
+	.arm
+	.fpu vfpv3-d16
+	.type	rotation_cordic, %function
+rotation_cordic:
+	@ args = 0, pretend = 0, frame = 56
+	@ frame_needed = 0, uses_anonymous_args = 0
+	push	{r4, r5, lr}
+	movw	lr, #:lower16:.LANCHOR0
+	mov	r5, r1
+	sub	sp, sp, #76
+	movt	lr, #:upper16:.LANCHOR0
+	add	r4, sp, #16
+	mov	ip, r0
+	ldmia	lr!, {r0, r1, r2, r3}
+	stmia	r4!, {r0, r1, r2, r3}
+	ldmia	lr!, {r0, r1, r2, r3}
+	stmia	r4!, {r0, r1, r2, r3}
+	ldmia	lr!, {r0, r1, r2, r3}
+	stmia	r4!, {r0, r1, r2, r3}
+	ldm	lr, {r0, r1}
+	cmp	r5, #0
+	stm	r4, {r0, r1}
+	ble	.L32
+	cmp	ip, #0
+	movle	r3, #57344
+	ldr	r2, [sp, #16]
+	movgt	r3, #8192
+	subgt	ip, ip, r2
+	addle	ip, ip, r2
+	movtle	r3, 65535
+	cmp	r5, #1
+	beq	.L33
+	ldr	r1, [sp, #20]
+	cmp	ip, #0
+	asr	r2, r3, #1
+	rsbgt	r2, r2, #8192
+	addgt	r3, r3, #4096
+	subgt	ip, ip, r1
+	addle	r2, r2, #8192
+	suble	r3, r3, #4096
+	addle	ip, ip, r1
+	cmp	r5, #2
+	beq	.L5
+	ldr	r1, [sp, #24]
+	cmp	ip, #0
+	asr	lr, r3, #2
+	asr	r0, r2, #2
+	addgt	r3, r3, r0
+	subgt	r2, r2, lr
+	subgt	ip, ip, r1
+	addle	r2, r2, lr
+	suble	r3, r3, r0
+	addle	ip, ip, r1
+	cmp	r5, #3
+	beq	.L5
+	ldr	r1, [sp, #28]
+	cmp	ip, #0
+	asr	lr, r3, #3
+	asr	r0, r2, #3
+	addgt	r3, r3, r0
+	subgt	r2, r2, lr
+	subgt	ip, ip, r1
+	addle	r2, r2, lr
+	suble	r3, r3, r0
+	addle	ip, ip, r1
+	cmp	r5, #4
+	beq	.L5
+	ldr	r1, [sp, #32]
+	cmp	ip, #0
+	asr	lr, r3, #4
+	asr	r0, r2, #4
+	addgt	r3, r3, r0
+	subgt	r2, r2, lr
+	subgt	ip, ip, r1
+	addle	r2, r2, lr
+	suble	r3, r3, r0
+	addle	ip, ip, r1
+	cmp	r5, #5
+	beq	.L5
+	ldr	r1, [sp, #36]
+	cmp	ip, #0
+	asr	lr, r3, #5
+	asr	r0, r2, #5
+	addgt	r3, r3, r0
+	subgt	r2, r2, lr
+	subgt	ip, ip, r1
+	addle	r2, r2, lr
+	suble	r3, r3, r0
+	addle	ip, ip, r1
+	cmp	r5, #6
+	beq	.L5
+	ldr	r1, [sp, #40]
+	cmp	ip, #0
+	asr	lr, r3, #6
+	asr	r0, r2, #6
+	addgt	r3, r3, r0
+	subgt	r2, r2, lr
+	subgt	ip, ip, r1
+	addle	r2, r2, lr
+	suble	r3, r3, r0
+	addle	ip, ip, r1
+	cmp	r5, #7
+	beq	.L5
+	ldr	r1, [sp, #44]
+	cmp	ip, #0
+	asr	lr, r3, #7
+	asr	r0, r2, #7
+	addgt	r3, r3, r0
+	subgt	r2, r2, lr
+	subgt	ip, ip, r1
+	addle	r2, r2, lr
+	suble	r3, r3, r0
+	addle	ip, ip, r1
+	cmp	r5, #8
+	beq	.L5
+	ldr	r1, [sp, #48]
+	cmp	ip, #0
+	asr	lr, r3, #8
+	asr	r0, r2, #8
+	addgt	r3, r3, r0
+	subgt	r2, r2, lr
+	subgt	ip, ip, r1
+	addle	r2, r2, lr
+	suble	r3, r3, r0
+	addle	ip, ip, r1
+	cmp	r5, #9
+	beq	.L5
+	ldr	r1, [sp, #52]
+	cmp	ip, #0
+	asr	lr, r3, #9
+	asr	r0, r2, #9
+	addgt	r3, r3, r0
+	subgt	r2, r2, lr
+	subgt	ip, ip, r1
+	addle	r2, r2, lr
+	suble	r3, r3, r0
+	addle	ip, ip, r1
+	cmp	r5, #10
+	beq	.L5
+	ldr	r1, [sp, #56]
+	cmp	ip, #0
+	asr	lr, r3, #10
+	asr	r0, r2, #10
+	addgt	r3, r3, r0
+	subgt	r2, r2, lr
+	subgt	ip, ip, r1
+	addle	r2, r2, lr
+	suble	r3, r3, r0
+	addle	ip, ip, r1
+	cmp	r5, #11
+	beq	.L5
+	ldr	r1, [sp, #60]
+	cmp	ip, #0
+	asr	lr, r3, #11
+	asr	r0, r2, #11
+	addgt	r3, r3, r0
+	subgt	r2, r2, lr
+	subgt	ip, ip, r1
+	addle	r2, r2, lr
+	suble	r3, r3, r0
+	addle	ip, ip, r1
+	cmp	r5, #12
+	beq	.L5
+	ldr	r1, [sp, #64]
+	cmp	ip, #0
+	asr	lr, r3, #12
+	asr	r0, r2, #12
+	addgt	r3, r3, r0
+	subgt	r2, r2, lr
+	subgt	ip, ip, r1
+	addle	r2, r2, lr
+	suble	r3, r3, r0
+	addle	ip, ip, r1
+	cmp	r5, #13
+	beq	.L5
+	ldr	r1, [sp, #68]
+	cmp	ip, #0
+	asr	lr, r3, #13
+	asr	r0, r2, #13
+	addgt	r3, r3, r0
+	subgt	r2, r2, lr
+	subgt	ip, ip, r1
+	addle	r2, r2, lr
+	suble	r3, r3, r0
+	addle	ip, ip, r1
+.L5:
+	vmov	s15, r2	@ int
+	vmov	s14, r3	@ int
+	vcvt.f32.s32	s10, s15
+	vcvt.f32.s32	s12, s14
+	vldr.32	s15, .L72+32
+	vmul.f32	s10, s10, s15
+	vmul.f32	s12, s12, s15
+	vcvt.f64.f32	d5, s10
+	vldr.64	d7, .L72
+	vcvt.f64.f32	d6, s12
+	vmul.f64	d5, d5, d7
+	vmul.f64	d6, d6, d7
+.L2:
+	vmov	s14, ip	@ int
+	vcvt.f32.s32	s14, s14, #13
+	vldr.64	d4, .L72+8
+	vcvt.f64.f32	d7, s14
+	movw	r0, #:lower16:.LC1
+	vmul.f64	d7, d7, d4
+	vstr.64	d6, [sp]
+	vstr.64	d7, [sp, #8]
+	vmov	r2, r3, d5
+	movt	r0, #:upper16:.LC1
+	bl	printf
+	add	sp, sp, #76
+	@ sp needed
+	pop	{r4, r5, pc}
+.L32:
+	vldr.64	d6, .L72+16
+	vldr.64	d5, .L72+24
+	b	.L2
+.L33:
+	mov	r2, #8192
+	b	.L5
+.L73:
+	.align	3
+.L72:
+	.word	-1312542006
+	.word	1071869486
+	.word	1717986918
+	.word	1078765158
+	.word	0
+	.word	0
+	.word	-1312542006
+	.word	1058237998
+	.word	956301312
+	.size	rotation_cordic, .-rotation_cordic
+	.section	.rodata
+	.align	2
+	.set	.LANCHOR0,. + 0
+.LC0:
+	.word	6433
+	.word	3797
+	.word	2005
+	.word	1018
+	.word	510
+	.word	254
+	.word	127
+	.word	62
+	.word	31
+	.word	15
+	.word	7
+	.word	3
+	.word	1
+	.word	0
+	.section	.rodata.str1.4,"aMS",%progbits,1
+	.align	2
+.LC1:
+	.ascii	" X_Next: %f \011 Y_next: %f \011 Z: %f\012\000"
+	.ident	"GCC: (GNU) 8.2.1 20180801 (Red Hat 8.2.1-2)"
+	.section	.note.GNU-stack,"",%progbits
