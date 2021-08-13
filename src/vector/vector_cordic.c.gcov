@@ -1,0 +1,54 @@
+        -:    0:Source:./vector_cordic.c
+        -:    0:Graph:main.gcno
+        -:    0:Data:-
+        -:    0:Runs:0
+        -:    0:Programs:0
+        -:    1:
+        -:    2:#include <stdio.h>
+        -:    3:#include <math.h>
+        -:    4:
+        -:    5:int angle_arr[14] = {6433, 3797, 2005, 1018, 510, 254, 127, 62, 31, 15, 7, 3, 1,0 };
+        -:    6:
+    #####:    7:void cordic_vector(double x, double y){
+        -:    8:	
+        -:    9:	// int x_prev = (int) (x *  pow(2,13)); 
+        -:   10:	// int y_prev = (int) (y * pow(2,13)); 
+    #####:   11:	int x_prev = (int) (x * (1 << 13)); 
+    #####:   12:	int y_prev = (int) (y * (1 << 13)); 
+    #####:   13:	int z=0; 
+    #####:   14:	int x_next =0; 
+    #####:   15:	int y_next =0; 
+    #####:   16:	int z_next =0; 
+    #####:   17:	printf("######Initial x_prev is %d\t y is %d\t####\n", x_prev,y_prev );
+    #####:   18:	for(int i=0; i<14; i++)
+        -:   19:	{
+    #####:   20:		printf("iteration: %d\n", i);
+    #####:   21:		printf("x_next= %d \t y_next= %d \n",x_next,y_next);
+    #####:   22:		if(y_prev > 0)
+        -:   23:		{
+    #####:   24:			x_next = x_prev +  (y_prev >> i);
+    #####:   25:		   	y_next = y_prev - (x_prev >> i);
+    #####:   26:		   	z_next = z + angle_arr[i];
+    #####:   27:		   	x_prev = x_next; 
+    #####:   28:		   	y_prev = y_next;
+    #####:   29:		   	z = z_next; 
+    #####:   30:		}
+        -:   31:
+        -:   32:		else
+        -:   33:		{
+    #####:   34:			x_next = x_prev - (y_prev >> i);
+    #####:   35:		   	y_next = y_prev + (x_prev >> i);
+    #####:   36:		   	z_next = z - angle_arr[i];
+    #####:   37:			x_prev = x_next; 
+    #####:   38:	   		y_prev = y_next;
+    #####:   39:	   		z = z_next;
+        -:   40:		}
+        -:   41:
+        -:   42:
+        -:   43:
+    #####:   44:	}	
+        -:   45:
+        -:   46:
+    #####:   47:	printf("This is the result %d\t %d\t %d\n", x_next, y_next,z);
+        -:   48:
+    #####:   49:}
