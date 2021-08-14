@@ -5,7 +5,7 @@ double pow(int base, int exponent)
 
 {
  // 1 1*2=2 2*2 =4 4*2 = 8 
-  int result =1;
+  double result =1.0;
 
   for(int i=0; i<exponent;i++)
   {
@@ -20,11 +20,6 @@ double angle_arr[14] = {45.0, 26.565, 14.036, 7.125, 3.576, 1.790, 0.895, 0.4476
 
 void rotation_cordic(int target_angle, int length_of_angle_array)
 {
- 
-
-
-
-
     double Y_prev =0; 
     double Y_next =0;
 
