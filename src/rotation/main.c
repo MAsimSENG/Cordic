@@ -1,18 +1,43 @@
-//#include "cordic_rotation_opt.c"
-//#include "cordic_rotation.c"
-#include "rotation_original.c"
+#include "rotation_no_optimization.c"
+#include "rotation_cordic_arith_opt.c"
+#include "cordic_rotation_all_opt.c"
+
 
 int main()
 {
+	printf("PLEASE ENTER 1 for NO OPT\n 2 for arith opt\n 3 for all optimization\n");
+	int opt=0; 
+    scanf("%d", &opt);
 
-	//int * angle_ptr = generate_table(); 
+    if(opt == 1)
+    {
+    	rotation_cordic_no_optimization(70,14);
+		return 0;
 
-	double desired_angle = 1.2217; // 70 degrees 
+    }  
+    else if(opt ==2)
+    {
+		double desired_angle = 1.2217; // 70 degrees 
+		desired_angle = (int) (desired_angle * (1 << 13)); // right shift our input angle by our scale factor 2^13; 
+    	rotation_cordic_arith_opt(desired_angle,14);
+		return 0;
 
-	//desired_angle = (int) (desired_angle * (1 << 13)); // right shift our input angle by our scale factor 2^13; 
+    }
+    else if(opt ==3 )
+    {
+    	double desired_angle = 1.2217; // 70 degrees 
+		desired_angle = (int) (desired_angle * (1 << 13)); // right shift our input angle by our scale factor 2^13; 
+    	rotation_cordic_all_opt(desired_angle,14);
+	
+		return 0;
+    }
 
-	rotation_cordic(70, 14 );
+    else
+    {
+    	printf("INVALID OPTIONS SELECT CLOSING PROGRAM\n");
+    	return 1; 
+    }
 
-	// rotation_cordic(desired_angle,14);
+	return 0;
 
 }

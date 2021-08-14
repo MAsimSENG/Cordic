@@ -18,8 +18,10 @@ double pow(int base, int exponent)
 double angle_arr[14] = {45.0, 26.565, 14.036, 7.125, 3.576, 1.790, 0.895, 0.4476, 0.2238, 0.1119, 0.05595, 0.02798, 0.013988,0.007 };
 
 
-void rotation_cordic(int target_angle, int length_of_angle_array)
+void rotation_cordic_no_optimization(int target_angle, int length_of_angle_array)
 {
+
+ 
     double Y_prev =0; 
     double Y_next =0;
 

@@ -1,6 +1,6 @@
 
-//#include "vector_cordic.c"
-#include "original_vector_cordic.c"
+#include "vector_cordic.c"
+//#include "original_vector_cordic.c"
 #include <stdio.h>
 //#include <math.h>
 

@@ -1,7 +1,6 @@
-#include <math.h>
 #include <stdio.h>
 
-void rotation_cordic(int target_angle, int length_of_angle_array)
+void rotation_cordic_arith_opt(int target_angle, int length_of_angle_array)
 {
  
 int angle_arr[14] = {6433, 3797, 2005, 1018, 510, 254, 127, 62, 31, 15, 7, 3, 1,0 };
