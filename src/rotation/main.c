@@ -1,6 +1,6 @@
 #include "rotation_no_optimization.c"
 #include "rotation_cordic_arith_opt.c"
-#include "cordic_rotation_all_opt.c"
+#include "rotation_cordic_all_opt.c"
 
 
 int main()
