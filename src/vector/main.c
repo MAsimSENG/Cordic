@@ -1,6 +1,6 @@
 #include "vector_cordic_no_optimization.c"
-#include "rotation_cordic_arith_opt.c"
-#include "cordic_rotation_all_opt.c"
+#include "vector_cordic_arith_opt.c"
+
 
 
 int main()
@@ -11,23 +11,19 @@ int main()
 
     if(opt == 1)
     {
-      rotation_cordic_no_optimization(70,14);
+      vector_cordic_no_opt(0.85, 0.75);
     return 0;
 
     }  
     else if(opt ==2)
     {
-    double desired_angle = 1.2217; // 70 degrees 
-    desired_angle = (int) (desired_angle * (1 << 13)); // right shift our input angle by our scale factor 2^13; 
-      rotation_cordic_arith_opt(desired_angle,14);
+      vector_cordic_arith_opt(0.85, 0.75);
     return 0;
 
     }
     else if(opt ==3 )
     {
-      double desired_angle = 1.2217; // 70 degrees 
-    desired_angle = (int) (desired_angle * (1 << 13)); // right shift our input angle by our scale factor 2^13; 
-      rotation_cordic_all_opt(desired_angle,14);
+      vector_cordic_all_opt(0.85, 0.75);
   
     return 0;
     }

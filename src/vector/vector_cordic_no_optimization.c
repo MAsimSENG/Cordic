@@ -21,7 +21,7 @@ double pow(int base, int exponent)
 }
 
 
-void cordic_vector(double x, double y){
+void vector_cordic_op_opt(double x, double y){
 	
 	// int x_prev = (int) (x *  pow(2,13)); 
 	// int y_prev = (int) (y * pow(2,13)); 
