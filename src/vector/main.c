@@ -1,5 +1,6 @@
 #include "vector_cordic_no_optimization.c"
 #include "vector_cordic_arith_opt.c"
+#include "vector_cordic_all_opt.c"
 
 
 
