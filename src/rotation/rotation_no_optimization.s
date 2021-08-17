@@ -99,13 +99,13 @@ pow:
 	.fpu vfpv3-d16
 	.type	rotation_cordic_no_optimization, %function
 rotation_cordic_no_optimization:
-	@ args = 0, pretend = 0, frame = 200
+	@ args = 0, pretend = 0, frame = 208
 	@ frame_needed = 1, uses_anonymous_args = 0
 	push	{fp, lr}
 	add	fp, sp, #4
-	sub	sp, sp, #216
-	str	r0, [fp, #-200]
-	str	r1, [fp, #-204]
+	sub	sp, sp, #224
+	vstr.64	d0, [fp, #-204]
+	str	r0, [fp, #-208]
 	movw	r3, #:lower16:.LC0
 	movt	r3, #:upper16:.LC0
 	sub	r0, fp, #196
@@ -127,10 +127,8 @@ rotation_cordic_no_optimization:
 	mov	r3, #0
 	movt	r3, 16368
 	strd	r2, [fp, #-36]
-	ldr	r3, [fp, #-200]
-	vmov	s15, r3	@ int
-	vcvt.f64.s32	d7, s15
-	vstr.64	d7, [fp, #-44]
+	ldrd	r2, [fp, #-204]
+	strd	r2, [fp, #-44]
 	mov	r3, #0
 	str	r3, [fp, #-48]
 	b	.L6
@@ -221,7 +219,7 @@ rotation_cordic_no_optimization:
 	str	r3, [fp, #-48]
 .L6:
 	ldr	r2, [fp, #-48]
-	ldr	r3, [fp, #-204]
+	ldr	r3, [fp, #-208]
 	cmp	r2, r3
 	blt	.L10
 	vldr.64	d7, [fp, #-44]
