@@ -4,6 +4,7 @@ void rotation_cordic_arith_opt(int target_angle, int length_of_angle_array)
 {
  
 int angle_arr[14] = {6433, 3797, 2005, 1018, 510, 254, 127, 62, 31, 15, 7, 3, 1,0 };
+printf("enter Rotatoion cordi arith opt !!! \n");
 
 
  // purpose of rotation cordic 
@@ -54,7 +55,7 @@ int angle_arr[14] = {6433, 3797, 2005, 1018, 510, 254, 127, 62, 31, 15, 7, 3, 1,
         }
       
     	// factor=pow(2,); //equivalent to 2^-i ex:{ 1/2.0, 1/4.0, 1/8.0, 1/16.0, 1/32.0, 1/64.0, 1/128.0, 1/512.0};
-      double temp_angle = ((float)(Z) / (float)(1<<13)) * 57.3;
+      // double temp_angle = ((float)(Z) / (float)(1<<13)) * 57.3;
     } // for loop
 
       double Z_result = ((float)(Z) / (float)(1<<13)) * 57.3;

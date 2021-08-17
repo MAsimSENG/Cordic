@@ -21,7 +21,7 @@ double angle_arr[14] = {45.0, 26.565, 14.036, 7.125, 3.576, 1.790, 0.895, 0.4476
 void rotation_cordic_no_optimization(int target_angle, int length_of_angle_array)
 {
 
- 
+    printf("enter Rotatoion no opt !!! \n");
     double Y_prev =0; 
     double Y_next =0;
 
@@ -70,7 +70,7 @@ void rotation_cordic_no_optimization(int target_angle, int length_of_angle_array
       double X_result = ((X_next) )*0.6072;   // K=0,6072= cos(45)*cos(26)*......
       double Y_result = ((Y_next))*0.6072;
 
-      printf(" X_Next: %f \t Y_next: %f \t Z: %f\n" , X_result  , Y_result, Z_result);
+      printf("X_Next: %f \t Y_next: %f \t Z: %f\n" , X_result  , Y_result, Z_result);
 
 
     
