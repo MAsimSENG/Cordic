@@ -9,7 +9,7 @@
 	register int c_xy_temp =0; 
 	register int xy_temp =0; 
 	register int z_temp =0; 
-	register int c_xz_temp =0; 
+	register int c_z_temp =0; 
 	register int i; 
 
 	for(i^=i; i<14; i=i+2)
@@ -19,12 +19,12 @@
 	: "=r" (c_xy_temp) : "r" (xy_temp), "r" (z_temp));
 
 	__asm__ __volatile__ ( "CORDIC_V_xz %0, %1, %2"
-	: "=r" (c_xz_temp) : "r" (xy_temp), "r" (z_temp));
+	: "=r" (c_z_temp) : "r" (xy_temp), "r" (z_temp));
 
 
 	x = c_xy_temp >> 16;// 0 out y so that we only have x 
 	y = (c_xy_temp << 16) >> 16; // left shift xy to 0 out the x's then right shift again 
-	z_temp = (c_xz_temp << 16) >> 16; // left shift xz to 0 out the x's then right shift again 
+	z_temp = (c_z_temp << 16) >> 16; // left shift xz to 0 out the x's then right shift again 
 	*z = z_temp;
 	
 	}	
