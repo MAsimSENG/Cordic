@@ -2,9 +2,9 @@
 
 //== LOCAL VARIABLES//
 //== OPTIMIZE THE FOR LOOP//
+
  static inline void rotation_cordic_all_opt(int target_angle)
 {
-printf("enter Rotatoion cordi all opt !!! ");
 int angle_arr[14] = {6433, 3797, 2005, 1018, 510, 254, 127, 62, 31, 15, 7, 3, 1,0 };
 
     register int Y_prev =0; 
@@ -74,23 +74,23 @@ int angle_arr[14] = {6433, 3797, 2005, 1018, 510, 254, 127, 62, 31, 15, 7, 3, 1,
           Z= Z_next;
         }
       
-      // temp_angle = ((float)(Z) /  (float)(1<<13)) * 57.3;
     
-    } // for loop
+    } 
 
 
-
-      double Z_result = ((float)(Z) / (float)(1<<13)) * 57.3;
-      double X_result = ((float)(X_next) / (float)(1<<13))*0.6072;   // K=0,6072= cos(45)*cos(26)*......
-      double Y_result = ((float)(Y_next) / (float)(1<<13))*0.6072;
+    //   double Z_result = ((float)(Z) / (float)(1<<13)) * 57.3;
+    //   double X_result = ((float)(X_next) / (float)(1<<13))*0.6072; 
+    //   double Y_result = ((float)(Y_next) / (float)(1<<13))*0.6072;
   
 
-     int x_fix_result = X_result*(1<<13);
-     int y_fix_result = Y_result * (1<<13);
+    //  int x_fix_result = X_result*(1<<13);
+    //  int y_fix_result = Y_result * (1<<13);
 
-     printf("OUR FIXED RESULT\n X_Next: %d \t Y_next: %d \t\n" , x_fix_result, y_fix_result);
+    //  printf("OUR FIXED RESULT\n X_Next: %d \t Y_next: %d \t\n" , x_fix_result, y_fix_result);
 
-    printf(" X_Next: %f \t Y_next: %f \t Z: %f\n" , X_result  , Y_result, Z_result);
+    // printf(" X_Next: %f \t Y_next: %f \t Z: %f\n" , X_result  , Y_result, Z_result);
 
-
-}// cordic function
+      X_next = (X_next) * 0.6072; 
+      Y_next = (Y_next) * 0.6072;
+      printf(" X_Next: %d \t Y_next: %d \t Z: %d\n" , X_next  , Y_next, Z);
+}
