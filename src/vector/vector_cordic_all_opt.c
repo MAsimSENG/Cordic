@@ -25,37 +25,32 @@ static inline void vector_cordic_all_opt(double x, double y){
 			x_next = x_prev +  (y_prev >> i);
 		   	y_next = y_prev - (x_prev >> i);
 		   	z_next = z + angle_arr[i];
-		   	x_prev = x_next; 
-		   	y_prev = y_next;
-		   	z = z_next; 
+		   	
 		}else
 		{
 			x_next = x_prev - (y_prev >> i);
 		   	y_next = y_prev + (x_prev >> i);
 		   	z_next = z - angle_arr[i];
-			x_prev = x_next; 
-	   		y_prev = y_next;
-	   		z = z_next;
+			
 		}
-
+		x_prev = x_next; 
+	   	y_prev = y_next;
+	   	z = z_next;
 
 		if(y_prev > 0)
 		{
 			x_next = x_prev +  (y_prev >> (i+1));
 		   	y_next = y_prev - (x_prev >> (i+1));
 		   	z_next = z + angle_arr[i+1];
-		   	x_prev = x_next; 
-		   	y_prev = y_next;
-		   	z = z_next; 
 		}else
 		{
 			x_next = x_prev - (y_prev >> (i+1));
 		   	y_next = y_prev + (x_prev >> (i+1));
 		   	z_next = z - angle_arr[i+1];
-			x_prev = x_next; 
-	   		y_prev = y_next;
-	   		z = z_next;
 		}
+		x_prev = x_next; 
+	   	y_prev = y_next;
+	   	z = z_next;
 	}	
 
 	printf("Fix-point result %d\t %d\t %d\n", x_next, y_next,z);
