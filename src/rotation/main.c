@@ -27,7 +27,7 @@ int main()
     {
     	double desired_angle = 1.2217; // 70 degrees 
 		desired_angle = (int) (desired_angle * (1 << 13)); // right shift our input angle by our scale factor 2^13; 
-    	rotation_cordic_all_opt(desired_angle,14);
+    	rotation_cordic_all_opt(desired_angle);
 	
 		return 0;
     }
