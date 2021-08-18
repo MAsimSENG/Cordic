@@ -24,12 +24,6 @@ int angle_arr[14] = {6433, 3797, 2005, 1018, 510, 254, 127, 62, 31, 15, 7, 3, 1,
 
           Z_next = Z  -  angle_arr[i]; 
 
-          X_prev = X_next;
-
-          Y_prev = Y_next;
-
-          Z= Z_next;
-
         }else{
           X_next= X_prev + (Y_prev  >> i);
 
@@ -37,12 +31,12 @@ int angle_arr[14] = {6433, 3797, 2005, 1018, 510, 254, 127, 62, 31, 15, 7, 3, 1,
 
           Z_next = Z  +  angle_arr[i];
 
-          X_prev = X_next;
-
-          Y_prev = Y_next;
-
-          Z= Z_next;
         }
+        X_prev = X_next;
+
+        Y_prev = Y_next;
+
+        Z= Z_next;
 
         // double temp_angle = ((float)(Z) /  (float)(1<<13)) * 57.3;
 
@@ -54,11 +48,7 @@ int angle_arr[14] = {6433, 3797, 2005, 1018, 510, 254, 127, 62, 31, 15, 7, 3, 1,
 
           Z_next = Z  -  angle_arr[i+1]; 
 
-          X_prev = X_next;
-
-          Y_prev = Y_next;
-
-          Z= Z_next;
+          
 
         }else{
           X_next= X_prev + (Y_prev  >> (i+1));
@@ -67,12 +57,13 @@ int angle_arr[14] = {6433, 3797, 2005, 1018, 510, 254, 127, 62, 31, 15, 7, 3, 1,
 
           Z_next = Z  +  angle_arr[i+1];
 
-          X_prev = X_next;
-
-          Y_prev = Y_next;
-
-          Z= Z_next;
+          
         }
+        X_prev = X_next;
+
+        Y_prev = Y_next;
+
+        Z= Z_next;
       
     
     } 
