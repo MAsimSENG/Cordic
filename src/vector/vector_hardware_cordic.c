@@ -23,7 +23,7 @@
 
 
 	x = c_xy_temp >> 16;// 0 out y so that we only have x 
-	y = (cxy_temp << 16) >> 16; // left shift xy to 0 out the x's then right shift again 
+	y = (c_xy_temp << 16) >> 16; // left shift xy to 0 out the x's then right shift again 
 	z_temp = (c_xz_temp << 16) >> 16; // left shift xz to 0 out the x's then right shift again 
 	*z = z_temp;
 	
